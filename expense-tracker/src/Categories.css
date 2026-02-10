@@ -1,0 +1,89 @@
+/* page background */
+body {
+  background: radial-gradient(circle at top, #1b1f2a, #0d0f16);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* common card style */
+.groceries,
+.dineOut,
+.transport,
+.others {
+  width: 90%;
+  max-width: 900px;
+  margin: 16px auto;
+  padding: 20px 24px;
+  border-radius: 10px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 6px 20px rgba(0,0,0,0.45);
+}
+
+/* heading */
+.groceries h2,
+.dineOut h2,
+.transport h2,
+.others h2 {
+  margin: 0;
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* input */
+.groceries input,
+.dineOut input,
+.transport input,
+.others input {
+  width: 140px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: rgba(0,0,0,0.35);
+  color: white;
+}
+
+/* button */
+.groceries button,
+.dineOut button,
+.transport button,
+.others button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  background: rgba(255,255,255,0.15);
+  transition: 0.2s;
+}
+
+.groceries button:hover,
+.dineOut button:hover,
+.Transport button:hover,
+.Others button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* category gradients (matching the theme image) */
+.groceries {
+  background: linear-gradient(135deg, #4c2a85, #6b4fa3);
+}
+
+.dineOut {
+  background: linear-gradient(135deg, #8b1d1d, #c93636);
+}
+
+.transport {
+  background: linear-gradient(135deg, #0b3c8a, #1e66d0);
+}
+
+.others {
+  background: linear-gradient(135deg, #0e4c63, #1f7a9b);
+}

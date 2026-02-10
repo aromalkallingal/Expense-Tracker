@@ -1,9 +1,16 @@
 import { useState } from 'react'
 import './App.css'
-import { useState } from 'react'
+import MyDatePicker from './calendar';
+import Categories from './categories';
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
-   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
+function App() {
+  return (
+    <div style={{ padding: "40px" }}>
+      <h2>Expense Tracker</h2>
+      <MyDatePicker />
+      <Categories />
+    </div>
+  );
+}
 
 export default App

@@ -31,4 +31,12 @@ export default function Categories () {
         </>
         
     )
+
+
+    const CATEGORIES = [
+  { key: "groceries", label: "Groceries" },
+  { key: "dineOut",   label: "Dine Out"  },
+  { key: "transport", label: "Transport" },
+  { key: "others",    label: "Others"    },
+];
 }

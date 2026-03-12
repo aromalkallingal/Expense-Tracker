@@ -1,6 +1,21 @@
-import "./Categories.css"
+import { useState } from "react";
+import "./Categories.css";
+
 
 export default function Categories () {
+
+    const [groceries, setGroceries] = useState("");
+    const [dineOut, setDineOut] = useState("");
+    const [transport, setTransport] = useState("");
+    const [others, setOthers] = useState("");
+
+    const [savedData, setSavedData] = useState({
+        groceries: 0,
+        dineOut: 0,
+        transport: 0,
+        others: 0
+    });
+
     return (
         <>
         <div className="categories">
@@ -32,11 +47,4 @@ export default function Categories () {
         
     )
 
-
-    const CATEGORIES = [
-  { key: "groceries", label: "Groceries" },
-  { key: "dineOut",   label: "Dine Out"  },
-  { key: "transport", label: "Transport" },
-  { key: "others",    label: "Others"    },
-];
 }

@@ -1,7 +1,19 @@
 import { useState } from "react";
 import "./Categories.css";
+import { useEffect } from "react";
 
 export default function Categories() {
+
+  useEffect(() => {
+  const saved = localStorage.getItem("totals");
+  if (saved) {
+    setTotals(JSON.parse(saved));
+  }
+}, []);
+
+useEffect(() => {
+  localStorage.setItem("totals", JSON.stringify(totals));
+}, [totals]);
 
   const categories = ["groceries", "dineOut", "transport", "others"];
 

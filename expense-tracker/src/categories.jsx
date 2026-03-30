@@ -4,12 +4,27 @@ import { useEffect } from "react";
 
 export default function Categories() {
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState("")
+  const [saved, setSaved] = useState([]);
+
+  const Change = (e) => {
+    setCount(e.target.value);
+  }
+
+
+  const Add = () => {
+    setSaved([...saved, count]);
+    console.log(saved);
+    setCount("")
+  }
+
+ 
+
   return (
     <div> 
-      <h1>count {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <h1>Groceries {count}</h1>
+      <input type="text" value={count} onChange={Change} />
+      <button type="submit" onClick={Add}>Add</button>
     </div>
    
   )

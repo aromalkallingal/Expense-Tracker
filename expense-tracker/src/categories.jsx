@@ -4,30 +4,68 @@ import { useEffect } from "react";
 
 export default function Categories() {
 
-  const [count, setCount] = useState("")
-  const [saved, setSaved] = useState(0);
+  const categories = ["groceries", "dineOut", "transport", "others"]
 
-  const Change = (e) => {
-    setCount(e.target.value);
-  }
+  const [inputs, setInputs] = useState({
+    gorceries: "",
+    dineOut: "",
+    transport: "",
+    others: "" 
+  });
+
+  const [saved, setSaved] = useState({
+    gorceries: 0,
+    dineOut: 0,
+    transport: 0,
+    others: 0
+  });
+
+  const handleChange = (category, value) => {
+    setInputs({
+      ...inputs, [category]: value
+    });
+  };
 
 
-  const Add = () => {
-    setSaved(saved + Number(count));
-    console.log(saved);
-    setCount("")
-  }
+  const handleAdd = (category) => {
+    setSaved({
+      ...saved,
+      [category]: saved[category] + Number(inputs[category])
+    });
+    
+    setInputs({
+      ...inputs,
+      [category]: ""
+    });
+  };
+
+  const handleClear = (category) => {
+    setSaved({
+      ...saved,
+      [category]: 0
+    });
+  };
 
  
+return (
+    <div>
+      {categories.map((cat) => (
+        <div key={cat}>
+          <h2>{cat} {saved[cat]}</h2>
 
-  return (
-    <div> 
-      <h1>Groceries {saved}</h1>
-      <input type="text" value={count} onChange={Change} />
-      <button type="submit" onClick={Add}>Add</button>
+          <input
+            type="text"
+            value={inputs[cat]}
+            onChange={(e) => handleChange(cat, e.target.value)}
+          />
+
+          <button onClick={() => handleAdd(cat)}>Add</button>
+          <button onClick={() => handleClear(cat)}>Clear</button>
+        </div>
+      ))}
     </div>
-   
-  )
+  );
+
 
  
 

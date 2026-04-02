@@ -7,14 +7,14 @@ export default function Categories() {
   const categories = ["groceries", "dineOut", "transport", "others"]
 
   const [inputs, setInputs] = useState({
-    gorceries: "",
+    groceries: "",
     dineOut: "",
     transport: "",
     others: "" 
   });
 
   const [saved, setSaved] = useState({
-    gorceries: 0,
+    groceries: 0,
     dineOut: 0,
     transport: 0,
     others: 0
@@ -28,9 +28,10 @@ export default function Categories() {
 
 
   const handleAdd = (category) => {
+    const value = Number(inputs[category]) || 0;
     setSaved({
       ...saved,
-      [category]: saved[category] + Number(inputs[category])
+      [category]: saved[category] + value
     });
     
     setInputs({
@@ -46,16 +47,19 @@ export default function Categories() {
     });
   };
 
+const total = Object.values(saved).reduce((acc, curr) => acc + curr, 0);
+
  
 return (
     <div>
+      <h1>Total{total}</h1>
       {categories.map((cat) => (
         <div key={cat}>
           <h2>{cat} {saved[cat]}</h2>
 
           <input
             type="text"
-            value={inputs[cat]}
+            value={inputs[cat] || ""}
             onChange={(e) => handleChange(cat, e.target.value)}
           />
 
